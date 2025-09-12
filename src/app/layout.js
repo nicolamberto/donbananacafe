@@ -1,15 +1,28 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Lilita_One, Concert_One, Work_Sans } from "next/font/google";
+
 import "./globals.css";
+import NavBar from "@/components/sections/navbar/NavBar";
+import LenisProvider from "@/components/providers/LenisProvider";
+import Footer from "@/components/sections/footer/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const lilita = Lilita_One({
   subsets: ["latin"],
+  weight: "400", // Lilita One solo tiene 400
+  variable: "--font-lilita",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const concert = Concert_One({
   subsets: ["latin"],
+  weight: "400", // Concert One solo tiene 400
+  variable: "--font-concert",
 });
+
+const workSans = Work_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"], // pesos que quieras usar
+  variable: "--font-work",
+});
+
 
 export const metadata = {
   title: "Create Next App",
@@ -20,9 +33,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${lilita.variable} ${concert.variable} ${workSans.variable} antialiased`}
       >
-        {children}
+        <LenisProvider>
+          <NavBar />
+          {children}
+        </LenisProvider>
+
       </body>
     </html>
   );
