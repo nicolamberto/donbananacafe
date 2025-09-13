@@ -140,7 +140,7 @@ export const contact = {
 export const footer = {
   id: "footer",
   colors: {
-    bg: "#386641",           // fondo global muy oscuro
+    bg: "#2B1C0E",           // fondo global muy oscuro
     brandCard: "#386641",    // tarjeta amarilla "Banana Coffee"
     contactCard: "#C65A1E",  // tarjeta naranja de contacto
     border: "#2B1C0E",       // contornos/sombras duras
