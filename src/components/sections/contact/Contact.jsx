@@ -11,7 +11,7 @@ export default function Contact() {
         <Section
             id={id}
             className="bg-[#4B4B44] text-[#2B1C0E]"
-            innerClassName="grid grid-cols-1 md:grid-cols-12 items-stretch w-full mx-auto relative px-2 md:px-6 max-w-[1480px] gap-6 md:gap-20 pt-10 md:pt-16"
+            innerClassName="grid grid-cols-1 md:grid-cols-12 items-stretch w-full mx-auto relative px-2 md:px-6 max-w-[1480px] gap-6 md:gap-20 py-20 md:py-0 md:pt-16"
         >
             {/* Formulario */}
             <div className="md:col-span-6 flex flex-col justify-center border-[6px] border-[#2B1C0E] bg-[#FBF1C6] rounded-[28px] p-5 md:p-10 shadow-[6px_6px_0px_0px_#2B1C0E]">
@@ -62,7 +62,7 @@ export default function Contact() {
                             fill
                             priority
                             sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 600px"
-                            className="object-contain"
+                            className="object-contain mt-10 md:mt-0"
                         />
                     </div>
                 </div>

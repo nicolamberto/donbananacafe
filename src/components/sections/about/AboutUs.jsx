@@ -11,22 +11,22 @@ export default function AboutUs() {
         <Section
             id={id}
             className="bg-[#FBF1C6] text-[#2B1C0E]"
-            innerClassName="grid grid-cols-1 md:grid-cols-12 pt-10 md:pt-20 items-stretch w-full mx-auto relative px-2 md:px-6 max-w-[1480px] gap-2 md:gap-20"
+            innerClassName="grid grid-cols-1 md:grid-cols-12 py-20 md:py-0 md:pt-20 items-stretch w-full mx-auto relative px-2 md:px-6 max-w-[1480px] gap-2 md:gap-20"
         >
             {/* Ilustración (izquierda en desktop) */}
             <div className="order-2 md:order-1 md:col-span-6 flex items-center justify-center">
                 <div className="relative w-full md:w-[min(60vw,820px)] lg:w-[min(52vw,900px)]">
                     <div className="relative h-[36vh] sm:h-[52vh] md:h-[min(70vh,720px)] lg:h-[min(76vh,820px)]">
-                        <Image src={image.src} alt={image.alt} fill priority sizes="(max-width: 768px) 95vw, (max-width: 1200px) 55vw, 900px" className="object-contain" />
+                        <Image src={image.src} alt={image.alt} fill priority sizes="(max-width: 768px) 95vw, (max-width: 1200px) 55vw, 900px" className="object-contain mt-10 md:mt-0" />
                     </div>
                 </div>
             </div>
 
             {/* Texto (derecha en desktop) */}
-            <div className="order-1 md:order-2 md:col-span-6 flex flex-col justify-center pt-6">
+            <div className="order-1 md:order-2 md:col-span-6 flex flex-col justify-center pt-0 md:pt-6 ">
                 <h2 className="font-heading leading-[0.9] tracking-[-0.02em] text-[clamp(38px,6.5vw,5rem)]"> {titleTop}<br className="hidden md:block" /> {titleMid}<br />{titleBottom} </h2>
 
-                <div className="mt-6 space-y-6">
+                <div className="mt-6 space-y-2 md:space-y-6">
                     {paragraphs.map((p, i) => (
                         <p key={i} className="text-[#2B1C0E] text-lg sm:text-xl lg:text-2xl font-sub">{p}</p>
                     ))}

@@ -8,7 +8,7 @@ export default function Blends() {
     const { id, sectionTitle, sectionSubtitle, colors, featured, items } = blends;
 
     return (
-        <Section id={id} className="bg-[#FBF1C6] text-[#2B1C0E] pb-10" innerClassName="grid grid-cols-1 md:grid-cols-12 pt-10 md:pt-10 items-stretch w-full mx-auto relative px-2 md:px-6 max-w-[1480px] gap-6 md:gap-10">
+        <Section id={id} className="bg-[#FBF1C6] text-[#2B1C0E] pb-10" innerClassName="grid grid-cols-1 md:grid-cols-12 py-20 md:pt-10 items-stretch w-full mx-auto relative px-2 md:px-6 max-w-[1480px] gap-6 md:gap-10">
             {/* Header (full width) */}
             <div className="md:col-span-12 flex flex-col items-center text-center mb-2 md:mb-0">
                 <h2 className="font-heading leading-[0.9] tracking-[-0.02em] text-[clamp(42px,7vw,6rem)]"> {sectionTitle} </h2>

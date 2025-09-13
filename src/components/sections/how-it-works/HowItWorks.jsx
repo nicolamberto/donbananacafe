@@ -12,7 +12,7 @@ export default function HowItWorks() {
         <Section
             id={id}
             className="bg-[#3D1C0F] text-[#F4DEAA]"
-            innerClassName="w-full mx-auto relative px-2 md:px-6 max-w-[1480px] pt-10 md:pt-0 pb-20 md:pb-0"
+            innerClassName="w-full mx-auto relative px-2 md:px-6 max-w-[1480px] py-20 md:py-0 md:pt-0 pb-20 md:pb-0"
         >
             {/* Contenedor con marco retro */}
             <div className="relative w-full p-0 md:p-0 ">
