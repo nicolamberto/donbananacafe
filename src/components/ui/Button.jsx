@@ -2,10 +2,24 @@
 
 import { cn } from "@/lib/utils";
 
-export default function Button({ label, className, ...props }) {
+export default function Button({ label, className, href, ...props }) {
+
+  const HandleClick = (e) => {
+    if(href?.startsWith("#")){
+      e.preventDefault();
+
+      const id = href.slice(1);
+      const section = document.getElementById(id)
+      if(section){
+        section.scrollIntoView({behavior: "smooth", block: "start"})
+      }
+    }
+  }
+
   return (
     <button
       {...props}
+      onClick={HandleClick}
       className={cn(
         "inline-flex items-center justify-center",
         "px-10 py-3 rounded-[9999px] text-2xl font-extrabold uppercase tracking-wide",

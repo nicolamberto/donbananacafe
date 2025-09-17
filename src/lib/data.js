@@ -6,8 +6,8 @@ export const hero = {
   subtitle: "Tostado fresco, envío en el día.",
   image: { src: "/images/banana/platanohero.webp", alt: "Banana con café" },
   ctas: {
-    primary: { label: "Probar ahora", href: "#comprar" },
-    secondary: { label: "Conocé nuestros granos", href: "#granos" }
+    primary: { label: "Probar ahora", href: "#compra" },
+    secondary: { label: "Conocé nuestros granos", href: "#compra" }
   }
 };
 
@@ -18,7 +18,7 @@ export const nav = {
     { label: "Nosotros", href: "#nosotros" },
     { label: "Contacto", href: "#contacto" }
   ],
-  cta: { label: "Pedir café", href: "#pedido" },
+  cta: { label: "Pedir café", href: "#compra" },
   colors: { bg: "#E3551E" }
 };
 
@@ -51,7 +51,7 @@ export const howItWorks = {
   ],
   ctaBand: {
     leftLabel: "Envíos gratis",
-    button: { label: "Quiero mi café", href: "#pedido" }
+    button: { label: "Quiero mi café", href: "#compra" }
   },
   colors: {
     bg: "#3D1C0F",          // fondo seccion
@@ -66,7 +66,7 @@ export const howItWorks = {
 
 // --- BLENDS ----------------------------------------------------
 export const blends = {
-  id: "blends",
+  id: "compra",
   sectionTitle: "Nuestros Blends",
   sectionSubtitle: "Descubrí el sabor de cada origen",
   // Fondo de la sección (igual al de las refs crema)
@@ -81,33 +81,93 @@ export const blends = {
     tag: "PREMIUM",
     name: "BLEND BANANA",
     note: "Producto Estrella",
-    image: { src: "/images/blends/banana-bag.png", alt: "Bolsa Blend Banana Premium" },
-    cta: { label: "Comprar", href: "#comprar-blend-banana" }
+    image: { src: "/images/banana/banana.png", alt: "Bolsa Blend Banana Premium" },
+    cta: { label: "Comprar", href: "#comprar-blend-banana" },
+    modal: {
+      title: "Blend Banana · Premium",
+      description: "Nuestro blend insignia: balance entre dulzor tipo caramelo y notas a cacao. Cuerpo medio-alto y final sedoso.",
+      attributes: [
+        { k: "Origen", v: "Colombia · Brasil" },
+        { k: "Proceso", v: "Lavado / Natural" },
+        { k: "Tostado", v: "Medio" }
+      ],
+      notes: ["Caramelo", "Cacao", "Avellana"],
+      priceFrom: "$12",
+      gallery: ["/images/banana/banana.png"]
+    },
   },
   items: [
     {
       tag: "REGULAR",
       name: "COLOMBIA COFFEE",
-      image: { src: "/images/blends/colombia-bag.png", alt: "Bolsa Colombia" },
-      cta: { label: "Comprar", href: "#comprar-colombia" }
+      image: { src: "/images/banana/colombia.png", alt: "Bolsa Colombia" },
+      cta: { label: "Comprar", href: "#comprar-colombia" },
+      modal: {
+        title: "Colombia · Regular",
+        description: "Altura y acidez brillante con dulzor a panela. Ideal para filtrados.",
+        attributes: [
+          { k: "Origen", v: "Huila, Colombia" },
+          { k: "Proceso", v: "Lavado" },
+          { k: "Tostado", v: "Medio-Claro" }
+        ],
+        notes: ["Panela", "Cítricos", "Cacao suave"],
+        priceFrom: "$10",
+        gallery: ["/images/banana/colombia.png"]
+      }
     },
     {
       tag: "REGULAR",
       name: "COFFEE BRASIL",
-      image: { src: "/images/blends/brasil-bag.png", alt: "Bolsa Brasil" },
-      cta: { label: "Comprar", href: "#comprar-brasil" }
+      image: { src: "/images/banana/brasil.png", alt: "Bolsa Brasil" },
+      cta: { label: "Comprar", href: "#comprar-brasil" },
+      modal: {
+        title: "Brasil · Regular",
+        description: "Cuerpo alto, notas a chocolate y frutos secos. Perfecto para espresso.",
+        attributes: [
+          { k: "Origen", v: "Minas Gerais, Brasil" },
+          { k: "Proceso", v: "Natural" },
+          { k: "Tostado", v: "Medio" }
+        ],
+        notes: ["Chocolate", "Nuez", "Vainilla"],
+        priceFrom: "$9.9",
+        gallery: ["/images/banana/brasil.png"]
+      }
     },
     {
       tag: "REGULAR",
       name: "ETIOPÍA ETIOPÍA",
-      image: { src: "/images/blends/etiopia-bag.png", alt: "Bolsa Etiopía" },
-      cta: { label: "Comprar", href: "#comprar-etiopia" }
+      image: { src: "/images/banana/etiopia.png", alt: "Bolsa Etiopía" },
+      cta: { label: "Comprar", href: "#comprar-etiopia" },
+      modal: {
+        title: "Etiopía · Regular",
+        description: "Aromas florales y frutas rojas. Complejo y jugoso.",
+        attributes: [
+          { k: "Origen", v: "Yirgacheffe, Etiopía" },
+          { k: "Proceso", v: "Lavado" },
+          { k: "Tostado", v: "Claro" }
+        ],
+        notes: ["Jazmín", "Frutos rojos", "Miel"],
+        priceFrom: "$11",
+        gallery: ["/images/banana/etiopia.png"]
+      }
     },
     {
       tag: "PREMIUM",
       name: "RESERVA ESPECIAL",
-      image: { src: "/images/blends/premium-bag.png", alt: "Bolsa Reserva Especial" },
-      cta: { label: "Comprar", href: "#comprar-reserva" }
+      image: { src: "/images/banana/premium.png", alt: "Bolsa Reserva Especial" },
+      cta: { label: "Comprar", href: "#comprar-reserva" },
+      modal: {
+        title: "Reserva Especial · Premium",
+        description: "Micro-lotes seleccionados. Perfil dulce y complejo con final largo.",
+        attributes: [
+          { k: "Origen", v: "Rotativo, microlotes" },
+          { k: "Proceso", v: "Experimental" },
+          { k: "Tostado", v: "Medio-Claro" }
+        ],
+        notes: ["Caramelo", "Fruta madura", "Especias"],
+        priceFrom: "$14.5",
+        gallery: ["/images/banana/premium.png"]
+      }
     }
   ]
 };

@@ -64,11 +64,14 @@ export default function HowItWorks() {
                     <div className="relative inline-flex items-center gap-4 rounded-full border-[6px] border-[#D18B28] px-6 md:px-10 py-0 md:py-3 bg-[#D18B28]">
                         <span className="font-heading text-[#3D1C0F] text-[clamp(20px,3vw,36px)] font-bold text-nowrap">
                             {ctaBand.leftLabel}
-                            <br className="block md:hidden"/>
-                            <span> a partir de $100</span> 
+                            <br className="block md:hidden" />
+                            <span> a partir de $100</span>
                         </span>
 
-                        <a href={'#'} className="inline-flex items-center justify-center px-4 sm:px-7 py-3 rounded-[9999px] text-base sm:text-lg font-semibold bg-[#F7D58A] text-[#2B1C0E] border-[3px] border-[#2B1C0E] shadow-[4px_4px_0px_0px_#2B1C0E] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-transform duration-150 text-nowrap">Aprovechar</a>
+                        <a
+                            href={ctaBand.href}
+                            className="inline-flex items-center justify-center px-4 sm:px-7 py-3 rounded-[9999px] text-base sm:text-lg font-semibold bg-[#F7D58A] text-[#2B1C0E] border-[3px] border-[#2B1C0E] shadow-[4px_4px_0px_0px_#2B1C0E] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-transform duration-150 text-nowrap">Aprovechar
+                        </a>
                     </div>
                 </div>
 

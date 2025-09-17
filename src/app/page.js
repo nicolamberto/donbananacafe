@@ -7,7 +7,7 @@ import Button from '@/components/ui/Button';
 import HeroSection from '@/components/sections/hero/HeroSection';
 import AboutUs from '@/components/sections/about/AboutUs';
 import HowItWorks from '@/components/sections/how-it-works/HowItWorks';
-import Blends from '@/components/sections/blends/Blends';
+import BlendsSection from '@/components/sections/blends/BlendsSection';
 import Contact from '@/components/sections/contact/Contact';
 import Footer from '@/components/sections/footer/Footer';
 
@@ -19,12 +19,11 @@ export default function Page() {
         {/* Columna de secciones sticky, cada una ocupa 100% ancho/alto */}
         <div className="flex flex-col">
           <HeroSection />
-          <AboutUs />
+          <BlendsSection />
           <HowItWorks />
-          <Blends />
+          <AboutUs />
           <Contact />
           <Footer />
-
         </div>
       </div>
     </LenisProvider>

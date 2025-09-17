@@ -20,8 +20,28 @@ export default function HeroSection() {
         </h1>
         <p className="mt-2 md:mt-20 text-[#FFFFFF]/70 text-lg sm:text-xl md:text-2xl font-sub">{subtitle}</p>
         <div className="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-5">
-          <a href={ctas.primary.href} className="inline-flex items-center justify-center px-6 sm:px-7 py-3 rounded-[9999px] text-base sm:text-lg font-semibold bg-[#F7D58A] text-[#2B1C0E] border-[3px] border-[#2B1C0E] shadow-[4px_4px_0px_0px_#2B1C0E] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-transform duration-150">{ctas.primary.label}</a>
-          <a href={ctas.secondary.href} className="inline-flex items-center justify-center px-6 sm:px-7 py-3 rounded-[9999px] text-base sm:text-lg font-semibold bg-[#B74728] text-[#FFFFFF] border-[3px] border-[#2B1C0E] shadow-[4px_4px_0px_0px_#2B1C0E] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-transform duration-150">{ctas.secondary.label}</a>
+          <a
+            href={ctas.primary.href}
+            onClick={(e) => {
+              if (ctas.primary.href.startsWith("#")) {
+                e.preventDefault();
+                const id = ctas.primary.href.replace("#", "");
+                const section = document.getElementById(id);
+                section?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
+            }}
+            className="inline-flex items-center justify-center px-6 sm:px-7 py-3 rounded-[9999px] text-base sm:text-lg font-semibold bg-[#F7D58A] text-[#2B1C0E] border-[3px] border-[#2B1C0E] shadow-[4px_4px_0px_0px_#2B1C0E] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-transform duration-150">{ctas.primary.label}</a>
+          <a
+            href={ctas.secondary.href}
+            onClick={(e) => {
+              if (ctas.primary.href.startsWith("#")) {
+                e.preventDefault();
+                const id = ctas.primary.href.replace("#", "");
+                const section = document.getElementById(id);
+                section?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
+            }}
+            className="inline-flex items-center justify-center px-6 sm:px-7 py-3 rounded-[9999px] text-base sm:text-lg font-semibold bg-[#B74728] text-[#FFFFFF] border-[3px] border-[#2B1C0E] shadow-[4px_4px_0px_0px_#2B1C0E] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-transform duration-150">{ctas.secondary.label}</a>
         </div>
       </div>
 

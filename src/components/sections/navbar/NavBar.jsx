@@ -61,8 +61,8 @@ export default function NavBar() {
             </div>
 
             {/* Derecha: CTA */}
-            <div className="flex items-center">
-              <Button label={cta.label} className="hidden md:inline-flex text-[13px] md:text-[18px] bg-[#E2B441] cursor-pointer" />
+            <div className="flex items-center scroll-smooth">
+              <Button href={cta.href} label={cta.label} className="hidden md:inline-flex text-[13px] md:text-[18px] bg-[#E2B441] cursor-pointer" />
             </div>
           </div>
         </nav>
