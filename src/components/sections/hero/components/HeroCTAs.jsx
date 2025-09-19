@@ -1,5 +1,8 @@
 "use client";
 
+import { motion } from "framer-motion";
+import useIsDesktop from "@/components/animations/useIsDesktop";
+import { containerStagger } from "@/components/animations/motionConfig";
 import HeroCTAButton from "./HeroCTAButton";
 
 export default function HeroCTAs({ ctas }) {
@@ -14,11 +17,18 @@ export default function HeroCTAs({ ctas }) {
     },
   ];
 
+  const isDesktop = useIsDesktop();
+  const ctaVariants = isDesktop ? containerStagger : undefined;
+
   return (
-    <div className="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-5">
-      {buttons.map((button) => (
-        <HeroCTAButton key={button.href} {...button} />
+    <motion.div
+      className="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-5"
+      variants={ctaVariants}
+      initial={isDesktop ? undefined : false}
+    >
+      {buttons.map((button, index) => (
+        <HeroCTAButton key={index} {...button} />
       ))}
-    </div>
+    </motion.div>
   );
 }

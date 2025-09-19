@@ -12,8 +12,6 @@ export default function NavBar() {
 
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [hasScrolled, setHasScrolled] = useState(false);
-
   useEffect(() => {
     let ticking = false;
 
@@ -21,9 +19,8 @@ export default function NavBar() {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const current = window.scrollY;
-          setHasScrolled(current > 100);
 
-          // si baja y pasó 100px: oculto; si sube (o está arriba): muestro
+          // oculta al bajar >100px; muestra al subir o cerca del tope
           if (current > lastScrollY && current > 100) {
             setIsVisible(false);
           } else {
@@ -70,3 +67,8 @@ export default function NavBar() {
     </header>
   );
 }
+
+
+
+
+

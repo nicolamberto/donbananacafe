@@ -1,38 +1,75 @@
 'use client';
 
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useMotionTemplate, useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import useIsDesktop from '@/components/animations/useIsDesktop';
 import { cn } from '@/lib/utils';
+import { sectionVariants } from '@/components/animations/motionConfig';
 
-/**
- * Section full-screen sticky
- * - Altura real en mobile con dvh/svh fallbacks
- * - Sticky + top-0 para “stack” de paneles
- */
 export default function Section({
   id,
   className,
   innerClassName,
   children,
+  motionProps = {},
 }) {
+  const ref = useRef(null);
+  const shouldReduceMotion = useReducedMotion();
+  const isDesktop = useIsDesktop();
+  const isAnimated = isDesktop && !shouldReduceMotion;
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  });
+
+  const contrast = useTransform(scrollYProgress, [0, 0.5, 1], [0.82, 1, 0.9]);
+  const saturation = useTransform(scrollYProgress, [0, 0.5, 1], [0.92, 1.05, 0.95]);
+  const filter = useMotionTemplate`contrast(${contrast}) saturate(${saturation})`;
+
+  const animatedProps = isAnimated
+    ? {
+        variants: sectionVariants,
+        initial: 'hidden',
+        whileInView: 'visible',
+        viewport: { once: false, amount: 0.35, margin: '-15%' },
+        style: { filter },
+      }
+    : { initial: false };
+
+  const combinedProps = {
+    ...animatedProps,
+    ...motionProps,
+  };
+
+  if (isAnimated) {
+    combinedProps.style = {
+      ...(animatedProps.style ?? {}),
+      ...(motionProps.style ?? {}),
+    };
+  }
+
+  const motionKey = isAnimated ? 'section-desktop' : 'section-mobile';
+
   return (
-    <section
+    <motion.section
+      key={motionKey}
+      ref={ref}
       id={id}
       className={cn(
-        // sticky full screen
-        ' lg:sticky top-0 w-full min-h-[100svh] flex justify-center items-center',
-        // opcional: snap si quisieras scroll-snap además del sticky
-        // 'snap-start',
-        className
+        'lg:sticky top-0 w-full min-h-[100svh] flex justify-center items-center',
+        className,
       )}
+      {...combinedProps}
     >
       <div
         className={cn(
           'h-full w-full flex items-center justify-center px-3 md:px-6',
-          innerClassName
+          innerClassName,
         )}
       >
         {children}
       </div>
-    </section>
+    </motion.section>
   );
 }

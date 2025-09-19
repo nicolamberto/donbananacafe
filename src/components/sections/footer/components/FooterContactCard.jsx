@@ -1,12 +1,20 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import useIsDesktop from "@/components/animations/useIsDesktop";
+import useRetroFloat from "@/components/animations/useRetroFloat";
+import { fadeInItem } from "@/components/animations/motionConfig";
 import FooterContactLink from "./FooterContactLink";
 
 export default function FooterContactCard({ contactCard, image }) {
+  const isDesktop = useIsDesktop();
+  const floatAnimation = useRetroFloat({ amplitude: 8, rotate: 2.4, duration: 6.8, delay: 0.5, enabled: isDesktop });
+  const cardVariants = isDesktop ? fadeInItem : undefined;
+
   return (
-    <div className="md:col-span-5 relative">
+    <motion.div className="md:col-span-5 relative" variants={cardVariants} initial={isDesktop ? undefined : false}>
       <div className="w-full h-full min-h-[280px] md:min-h-[340px] rounded-[28px] border-[6px] border-[#2B1C0E] bg-[#F4DFC6] p-6 md:p-8 shadow-[6px_6px_0px_0px_#2B1C0E] flex flex-col justify-center">
         <div className="space-y-4 text-[#2B1C0E]">
           <FooterContactLink href={contactCard.phone.href} label={contactCard.phone.label} icon={FaPhoneAlt} />
@@ -19,7 +27,10 @@ export default function FooterContactCard({ contactCard, image }) {
           />
         </div>
       </div>
-      <div className="pointer-events-none absolute -bottom-4 right-2 md:top-1/2 -translate-y-1/2 transform md:right-0 w-[150px] sm:w-[180px] md:w-[220px]">
+      <motion.div
+        className="pointer-events-none absolute -bottom-4 right-2 md:top-1/2 -translate-y-1/2 transform md:right-0 w-[150px] sm:w-[180px] md:w-[220px]"
+        {...floatAnimation}
+      >
         <div className="relative justify-center items-center h-[180px] sm:h-[210px] md:h-[200px]">
           <Image
             src={image.src}
@@ -29,7 +40,7 @@ export default function FooterContactCard({ contactCard, image }) {
             className="object-contain"
           />
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
